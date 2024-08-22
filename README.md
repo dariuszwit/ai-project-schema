@@ -1,7 +1,5 @@
 # Project Schema Generator
 
-![Icon](https://raw.githubusercontent.com/dariuszwit/project-schema-generator/main/images/icon.png)
-
 Create a schema of your project, including directory structure and file contents, directly within Visual Studio Code.
 
 ## Features
