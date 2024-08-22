@@ -1,72 +1,53 @@
-# project-schema-generator README
+# Project Schema Generator
 
-This is the README for your extension "project-schema-generator". After writing up a brief description, we recommend including the following sections.
+![Icon](https://raw.githubusercontent.com/dariuszwit/project-schema-generator/main/icon.png)
+
+Create a schema of your project, including directory structure and file contents, directly within Visual Studio Code.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Generate a project schema including directory structure and file contents.
+- Option to create a `.ignorepsg` file to specify files and directories to exclude from the schema.
+- Right-click context menu integration in the Explorer view for quick access.
 
-For example if there is an image subfolder under your extension project workspace:
+## Usage
 
-\!\[feature X\]\(images/feature-x.png\)
+1. **Generate Project Schema:**
+   - Right-click on a folder in the Explorer view and select `Run Generate Structure Script`.
+   - The structure and content of the project will be saved in a file named `project_structure.txt` in the root of the selected folder.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+2. **Create .ignorepsg File:**
+   - Right-click on a folder in the Explorer view and select `Create .ignorepsg File`.
+   - This will generate a `.ignorepsg` file with default ignore rules.
+
+## Configuration
+
+The `.ignorepsg` file allows you to specify patterns for files and directories that should be ignored when generating the project schema.
+
+### Example of `.ignorepsg` file:
+
+```plaintext
+# Ignore specific file extensions
+*.diff
+*.log
+*.swp
+*.png
+*.jpg
+*.zip
+
+# Ignore OS or Editor folders and files
+.DS_Store
+Thumbs.db
+.cache/
+node_modules/
+.git/
+```
 
 ## Requirements
+Python installed on your machine (version 3.x).
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## Installation
+You can install this extension from the Visual Studio Code Marketplace.
 
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
-# project-schema-generator
+## Contributing
+Contributions are welcome! Feel free to submit a pull request or open an issue on GitHub.

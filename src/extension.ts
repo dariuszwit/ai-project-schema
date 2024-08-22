@@ -1,26 +1,120 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { exec } from 'child_process';
+import * as path from 'path';
+import * as fs from 'fs';
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
+function runPythonScript(scriptPath: string, projectPath: string) {
+    const command = `python "${scriptPath}"`;
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "project-schema-generator" is now active!');
+    exec(command, { cwd: projectPath }, (error, _, stderr) => {
+        if (error) {
+            console.error(`Execution Error: ${error.message}`);
+            vscode.window.showErrorMessage(`Error: ${stderr}`);
+            return;
+        }
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('project-schema-generator.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Project schema generator!');
-	});
-
-	context.subscriptions.push(disposable);
+        console.log('Command executed successfully.');
+        vscode.window.showInformationMessage('Project structure generated successfully!');
+    });
 }
 
-// This method is called when your extension is deactivated
+function createIgnoreFile(projectPath: string) {
+    const ignoreFilePath = path.join(projectPath, '.ignorepsg');
+    const defaultIgnoreContent = `
+# Ignore specific file extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+*.png
+*.jpg
+*.jpeg
+*.zip
+*.ttf
+*.pot
+
+# Ignore OS or Editor folders and files
+.DS_Store
+Thumbs.db
+.cache/
+.project
+.settings/
+.tmproj
+*.esproj
+nbproject/
+*.sublime-project
+*.sublime-workspace
+
+# Dreamweaver added files
+_notes/
+dwsync.xml
+
+# Komodo project files
+*.komodoproject
+.komodotools/
+
+# Folders to ignore
+.hg/
+.svn/
+.CVS/
+intermediate/
+.idea/
+cache/
+.vcode/
+node_modules/
+admin/fonts/
+admin/images/
+admin/backgrounds/
+libs/
+.git/
+
+# Ignore specific generated files
+public/js/custom-cloud.bundle.js
+public/js/custom-cloud.bundle.js.map
+
+# Ignore specific files
+LICENSE.txt
+project_scheme.ps1
+project_structure_and_code.txt
+.ignorepsg
+.gitignore
+CHANGELOG.md
+README.md
+README.txt
+package-lock.json
+scheme_creator.py
+project_structure.txt
+.ignoreit
+`.trim();
+
+    if (fs.existsSync(ignoreFilePath)) {
+        vscode.window.showWarningMessage('.ignorepsg file already exists!');
+    } else {
+        fs.writeFileSync(ignoreFilePath, defaultIgnoreContent);
+        vscode.window.showInformationMessage('.ignorepsg file created successfully!');
+    }
+}
+
+export function activate(context: vscode.ExtensionContext) {
+    let disposable = vscode.commands.registerCommand('project-schema-generator.runPythonScript', (uri: vscode.Uri) => {
+        const projectPath = uri.fsPath;
+        const scriptPath = context.asAbsolutePath('generate_structure.py'); // Ensure this path is correct
+        runPythonScript(scriptPath, projectPath);
+    });
+
+    let createIgnoreFileCmd = vscode.commands.registerCommand('project-schema-generator.createIgnoreFile', (uri: vscode.Uri) => {
+        const projectPath = uri.fsPath;
+        createIgnoreFile(projectPath);
+    });
+
+    context.subscriptions.push(disposable);
+    context.subscriptions.push(createIgnoreFileCmd);
+}
+
 export function deactivate() {}
