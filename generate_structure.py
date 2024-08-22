@@ -31,22 +31,17 @@ def read_file_with_encoding(filepath):
     return "Error: Could not decode file with supported encodings."
 
 def write_structure_and_contents(root_dir, output_file, ignore_list):
-    # First, write the structure
     structure_lines = []
     content_blocks = []
 
     for dirpath, dirnames, filenames in os.walk(root_dir):
-        # Exclude directories from the ignore list
         dirnames[:] = [d for d in dirnames if not is_ignored(os.path.join(dirpath, d), ignore_list, root_dir)]
-        # Exclude files from the ignore list
         filenames = [f for f in filenames if not is_ignored(os.path.join(dirpath, f), ignore_list, root_dir)]
         
-        # Write directory structure
         level = dirpath.replace(root_dir, '').count(os.sep)
         indent = ' ' * 4 * level
         structure_lines.append(f"{indent}{os.path.basename(dirpath)}/\n")
         
-        # Prepare file names for structure and their content
         for filename in filenames:
             filepath = os.path.join(dirpath, filename)
             structure_lines.append(f"{indent}    {filename}\n")
@@ -57,17 +52,14 @@ def write_structure_and_contents(root_dir, output_file, ignore_list):
                 content_blocks.append(f"{content_indent}{line}\n")
             content_blocks.append(f"{content_indent}--- End of {filename} content ---\n\n")
     
-    # Write everything to the output file
     with open(output_file, 'w', encoding='utf-8') as out_f:
-        # First, write the structure
         out_f.writelines(structure_lines)
-        # Then, append the content of all files
         out_f.writelines(content_blocks)
 
 if __name__ == "__main__":
-    root_directory = '.'  # Specify your project root directory
+    root_directory = '.'  
     output_file = 'project_structure.txt'
-    ignore_file = '.ignorepsg'
+    ignore_file = '.vscode/.ignorepsg'
     
     ignore_list = read_ignore_file(ignore_file)
     write_structure_and_contents(root_directory, output_file, ignore_list)

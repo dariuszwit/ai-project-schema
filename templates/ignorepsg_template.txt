@@ -15,6 +15,10 @@
 *.zip
 *.ttf
 *.pot
+*.vsix
+*.md
+*.code-workspace
+*.ignorepsg
 
 # Ignore OS or Editor folders and files
 .DS_Store
@@ -45,15 +49,8 @@ intermediate/
 cache/
 .vcode/
 node_modules/
-admin/fonts/
-admin/images/
-admin/backgrounds/
 libs/
 .git/
-
-# Ignore specific generated files
-public/js/custom-cloud.bundle.js
-public/js/custom-cloud.bundle.js.map
 
 # Ignore specific files
 LICENSE.txt

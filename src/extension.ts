@@ -1,120 +1,70 @@
 import * as vscode from 'vscode';
-import { exec } from 'child_process';
-import * as path from 'path';
 import * as fs from 'fs';
+import * as path from 'path';
+import { exec } from 'child_process';
 
-function runPythonScript(scriptPath: string, projectPath: string) {
-    const command = `python "${scriptPath}"`;
+export function activate(context: vscode.ExtensionContext) {
 
-    exec(command, { cwd: projectPath }, (error, _, stderr) => {
-        if (error) {
-            console.error(`Execution Error: ${error.message}`);
-            vscode.window.showErrorMessage(`Error: ${stderr}`);
+    // Register command to generate the project schema
+    let generateSchema = vscode.commands.registerCommand('project-schema-generator.generateSchema', () => {
+        vscode.window.showInformationMessage('GPS: Generate Project Schema command executed!');
+        console.log('GPS: Generate Project Schema command executed!');
+
+        const rootPath = vscode.workspace.rootPath;
+        if (!rootPath) {
+            vscode.window.showErrorMessage('No folder is opened.');
             return;
         }
 
-        console.log('Command executed successfully.');
-        vscode.window.showInformationMessage('Project structure generated successfully!');
-    });
-}
-
-function createIgnoreFile(projectPath: string) {
-    const ignoreFilePath = path.join(projectPath, '.ignorepsg');
-    const defaultIgnoreContent = `
-# Ignore specific file extensions
-*.diff
-*.err
-*.orig
-*.log
-*.rej
-*.swo
-*.swp
-*.vi
-*~
-*.sass-cache
-*.png
-*.jpg
-*.jpeg
-*.zip
-*.ttf
-*.pot
-
-# Ignore OS or Editor folders and files
-.DS_Store
-Thumbs.db
-.cache/
-.project
-.settings/
-.tmproj
-*.esproj
-nbproject/
-*.sublime-project
-*.sublime-workspace
-
-# Dreamweaver added files
-_notes/
-dwsync.xml
-
-# Komodo project files
-*.komodoproject
-.komodotools/
-
-# Folders to ignore
-.hg/
-.svn/
-.CVS/
-intermediate/
-.idea/
-cache/
-.vcode/
-node_modules/
-admin/fonts/
-admin/images/
-admin/backgrounds/
-libs/
-.git/
-
-# Ignore specific generated files
-public/js/custom-cloud.bundle.js
-public/js/custom-cloud.bundle.js.map
-
-# Ignore specific files
-LICENSE.txt
-project_scheme.ps1
-project_structure_and_code.txt
-.ignorepsg
-.gitignore
-CHANGELOG.md
-README.md
-README.txt
-package-lock.json
-scheme_creator.py
-project_structure.txt
-.ignoreit
-`.trim();
-
-    if (fs.existsSync(ignoreFilePath)) {
-        vscode.window.showWarningMessage('.ignorepsg file already exists!');
-    } else {
-        fs.writeFileSync(ignoreFilePath, defaultIgnoreContent);
-        vscode.window.showInformationMessage('.ignorepsg file created successfully!');
-    }
-}
-
-export function activate(context: vscode.ExtensionContext) {
-    let disposable = vscode.commands.registerCommand('project-schema-generator.runPythonScript', (uri: vscode.Uri) => {
-        const projectPath = uri.fsPath;
-        const scriptPath = context.asAbsolutePath('generate_structure.py'); // Ensure this path is correct
-        runPythonScript(scriptPath, projectPath);
+        // Properly escape the path by wrapping it in quotes
+        const scriptPath = `"${path.join(context.extensionPath, 'generate_structure.py')}"`;
+        const command = `python ${scriptPath}`;
+        exec(command, { cwd: rootPath }, (error, stdout, stderr) => {
+            if (error) {
+                vscode.window.showErrorMessage(`Error: ${error.message}`);
+                console.error(error);
+                return;
+            }
+            vscode.window.showInformationMessage('Project structure generated successfully!');
+            console.log(stdout);
+            if (stderr) {
+                console.error(stderr);
+            }
+        });
     });
 
-    let createIgnoreFileCmd = vscode.commands.registerCommand('project-schema-generator.createIgnoreFile', (uri: vscode.Uri) => {
-        const projectPath = uri.fsPath;
-        createIgnoreFile(projectPath);
+    // Register command to create the .ignorepsg file
+    let createIgnoreFile = vscode.commands.registerCommand('project-schema-generator.createIgnoreFile', () => {
+        vscode.window.showInformationMessage('GPS: Create .ignorepsg File command executed!');
+        console.log('GPS: Create .ignorepsg File command executed!');
+
+        const rootPath = vscode.workspace.rootPath;
+        if (!rootPath) {
+            vscode.window.showErrorMessage('No folder is opened.');
+            return;
+        }
+
+        const vscodeDir = path.join(rootPath, '.vscode');
+        const ignoreFilePath = path.join(vscodeDir, '.ignorepsg');
+        const templateFilePath = path.join(context.extensionPath, 'templates', 'ignorepsg_template.txt');
+
+        if (!fs.existsSync(vscodeDir)) {
+            fs.mkdirSync(vscodeDir);
+        }
+
+        // Read the ignore file template content
+        fs.readFile(templateFilePath, 'utf8', (err, data) => {
+            if (err) {
+                vscode.window.showErrorMessage(`Error reading ignore file template: ${err.message}`);
+                return;
+            }
+            fs.writeFileSync(ignoreFilePath, data);
+            vscode.window.showInformationMessage('.ignorepsg file created successfully!');
+        });
     });
 
-    context.subscriptions.push(disposable);
-    context.subscriptions.push(createIgnoreFileCmd);
+    context.subscriptions.push(generateSchema);
+    context.subscriptions.push(createIgnoreFile);
 }
 
 export function deactivate() {}

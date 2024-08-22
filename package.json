@@ -2,7 +2,7 @@
   "name": "project-schema-generator",
   "displayName": "Project Schema Generator",
   "description": "Create a schema of your project including directory structure and file contents",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "dariuszwit",
   "icon": "images/icon.png",
   "engines": {
@@ -14,7 +14,6 @@
   "activationEvents": [
     "onStartupFinished",
     "onCommand:project-schema-generator.generateSchema",
-    "onCommand:project-schema-generator.runPythonScript",
     "onCommand:project-schema-generator.createIgnoreFile"
   ],
   "main": "./out/extension.js",
@@ -22,28 +21,24 @@
     "commands": [
       {
         "command": "project-schema-generator.generateSchema",
-        "title": "Generate Project Schema"
-      },
-      {
-        "command": "project-schema-generator.runPythonScript",
-        "title": "Run Generate Structure Script"
+        "title": "GPS: Generate Project Schema"
       },
       {
         "command": "project-schema-generator.createIgnoreFile",
-        "title": "Create .ignorepsg File"
+        "title": "GPS: Create .ignorepsg File"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "project-schema-generator.runPythonScript",
+          "command": "project-schema-generator.generateSchema",
           "when": "explorerResourceIsFolder",
-          "group": "project-schema-generator@1"
+          "group": "navigation"
         },
         {
           "command": "project-schema-generator.createIgnoreFile",
           "when": "explorerResourceIsFolder",
-          "group": "project-schema-generator@1"
+          "group": "navigation"
         }
       ]
     }
