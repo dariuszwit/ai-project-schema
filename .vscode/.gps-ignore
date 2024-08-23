@@ -1,0 +1,76 @@
+# Ignore specific file extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+*.zip
+*.ttf
+*.pot
+*.vsix
+*.code-workspace
+*.ignorepsg
+*.bundle.js
+*.bundle.js.map
+
+# Ignore image file extensions
+*.png
+*.jpg
+*.jpeg
+*.webp
+
+# Ignore specific files
+LICENSE.txt
+LICENSE
+CHANGELOG.md
+README.md
+README.txt
+LICENSE.txt
+project_scheme.ps1
+project_structure_and_code.txt
+project_structure.txt
+scheme_creator.py
+project_analysis.txt
+.gitignore
+package-lock.json
+sftp.json
+
+# Ignore folders and files
+.DS_Store
+Thumbs.db
+.cache/
+.project
+.settings/
+.tmproj
+*.esproj
+nbproject/
+*.sublime-project
+*.sublime-workspace
+
+# Dreamweaver added files
+_notes/
+dwsync.xml
+
+# Komodo project files
+*.komodoproject
+.komodotools/
+
+# Folders to ignore
+.hg/
+.svn/
+.CVS/
+intermediate/
+.idea/
+cache/
+.vcode/
+node_modules/
+libs/
+.git/
+.tools/
+neon-fonts/
+languages/
