@@ -9,38 +9,14 @@
 *.vi
 *~
 *.sass-cache
-*.zip
-*.ttf
-*.pot
-*.vsix
-*.code-workspace
-*.ignorepsg
-*.bundle.js
-*.bundle.js.map
-
-# Ignore image file extensions
 *.png
 *.jpg
 *.jpeg
-*.webp
+*.zip
+*.ttf
+*.pot
 
-# Ignore specific files
-LICENSE.txt
-LICENSE
-CHANGELOG.md
-README.md
-README.txt
-LICENSE.txt
-project_scheme.ps1
-project_structure_and_code.txt
-project_structure.txt
-scheme_creator.py
-project_analysis.txt
-.gitignore
-package-lock.json
-sftp.json
-
-# Ignore folders and files
+# Ignore OS or Editor folders and files
 .DS_Store
 Thumbs.db
 .cache/
@@ -69,8 +45,26 @@ intermediate/
 cache/
 .vcode/
 node_modules/
+admin/fonts/
+admin/images/
+admin/backgrounds/
 libs/
 .git/
-.tools/
-neon-fonts/
-languages/
+
+# Ignore specific generated files
+public/js/custom-cloud.bundle.js
+public/js/custom-cloud.bundle.js.map
+
+# Ignore specific files
+LICENSE.txt
+project_scheme.ps1
+project_structure_and_code.txt
+.ignorepsg
+.gitignore
+CHANGELOG.md
+README.md
+README.txt
+package-lock.json
+scheme_creator.py
+project_structure.txt
+.ignoreit

@@ -1,11 +1,52 @@
 import * as vscode from 'vscode';
-import * as fs from 'fs';
 import * as path from 'path';
-import { exec } from 'child_process';
+import { exec } from 'child_process'; // Dodany import
+import * as fs from 'fs';
 
 export function activate(context: vscode.ExtensionContext) {
+    // Komenda do generowania pliku .gps-ignore
+    let createIgnoreFile = vscode.commands.registerCommand('project-schema-generator.createIgnoreFile', () => {
+        vscode.window.showInformationMessage('GPS: Create .gps-ignore File command executed!');
+        console.log('GPS: Create .gps-ignore File command executed!');
 
-    // Register command to generate the project schema
+        const rootPath = vscode.workspace.rootPath;
+        if (!rootPath) {
+            vscode.window.showErrorMessage('No folder is opened.');
+            return;
+        }
+
+        const vscodeDir = path.join(rootPath, '.vscode');
+        const ignoreFilePath = path.join(vscodeDir, '.gps-ignore');
+        const templateFilePath = path.join(context.extensionPath, 'templates', 'ignorepsg_template.txt');
+
+        if (!fs.existsSync(vscodeDir)) {
+            fs.mkdirSync(vscodeDir, { recursive: true });
+            console.log(`Katalog '.vscode' został utworzony w: ${vscodeDir}`);
+        }
+
+        // Czytanie szablonu pliku ignorowania i zapisanie go jako .gps-ignore
+        fs.readFile(templateFilePath, 'utf8', (err, data) => {
+            if (err) {
+                vscode.window.showErrorMessage(`Error reading ignore file template: ${err.message}`);
+                console.error(`Błąd odczytu szablonu: ${err.message}`);
+                return;
+            }
+
+            fs.writeFile(ignoreFilePath, data, (writeErr) => {
+                if (writeErr) {
+                    vscode.window.showErrorMessage(`Error writing .gps-ignore file: ${writeErr.message}`);
+                    console.error(`Błąd zapisu pliku .gps-ignore: ${writeErr.message}`);
+                    return;
+                }
+                vscode.window.showInformationMessage('.gps-ignore file created successfully!');
+                console.log(`Plik '.gps-ignore' został utworzony w: ${ignoreFilePath}`);
+            });
+        });
+    });
+
+    context.subscriptions.push(createIgnoreFile);
+
+    // Komenda do generowania struktury projektu
     let generateSchema = vscode.commands.registerCommand('project-schema-generator.generateSchema', () => {
         vscode.window.showInformationMessage('GPS: Generate Project Schema command executed!');
         console.log('GPS: Generate Project Schema command executed!');
@@ -16,10 +57,12 @@ export function activate(context: vscode.ExtensionContext) {
             return;
         }
 
-        // Properly escape the path by wrapping it in quotes
-        const scriptPath = `"${path.join(context.extensionPath, 'generate_structure.py')}"`;
-        const command = `python ${scriptPath}`;
-        exec(command, { cwd: rootPath }, (error, stdout, stderr) => {
+        // Ścieżka do skryptu Python w katalogu rozszerzenia
+        const scriptPath = `"${path.join(context.extensionPath, 'src', 'generate_structure.py')}"`;
+        
+        // Komenda wywołująca skrypt z rootPath jako argument
+        const command = `python ${scriptPath} "${rootPath}"`;
+        exec(command, { cwd: rootPath }, (error: Error | null, stdout: string, stderr: string) => {
             if (error) {
                 vscode.window.showErrorMessage(`Error: ${error.message}`);
                 console.error(error);
@@ -33,38 +76,7 @@ export function activate(context: vscode.ExtensionContext) {
         });
     });
 
-    // Register command to create the .ignorepsg file
-    let createIgnoreFile = vscode.commands.registerCommand('project-schema-generator.createIgnoreFile', () => {
-        vscode.window.showInformationMessage('GPS: Create .ignorepsg File command executed!');
-        console.log('GPS: Create .ignorepsg File command executed!');
-
-        const rootPath = vscode.workspace.rootPath;
-        if (!rootPath) {
-            vscode.window.showErrorMessage('No folder is opened.');
-            return;
-        }
-
-        const vscodeDir = path.join(rootPath, '.vscode');
-        const ignoreFilePath = path.join(vscodeDir, '.ignorepsg');
-        const templateFilePath = path.join(context.extensionPath, 'templates', 'ignorepsg_template.txt');
-
-        if (!fs.existsSync(vscodeDir)) {
-            fs.mkdirSync(vscodeDir);
-        }
-
-        // Read the ignore file template content
-        fs.readFile(templateFilePath, 'utf8', (err, data) => {
-            if (err) {
-                vscode.window.showErrorMessage(`Error reading ignore file template: ${err.message}`);
-                return;
-            }
-            fs.writeFileSync(ignoreFilePath, data);
-            vscode.window.showInformationMessage('.ignorepsg file created successfully!');
-        });
-    });
-
     context.subscriptions.push(generateSchema);
-    context.subscriptions.push(createIgnoreFile);
 }
 
 export function deactivate() {}
