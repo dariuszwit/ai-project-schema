@@ -10,8 +10,11 @@ def get_output_directory_path(project_root):
 
 def create_output_directory(output_dir):
     """Tworzy katalog wyjściowy, jeśli nie istnieje."""
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
-        print(f"Katalog '{output_dir}' został utworzony.")
-    else:
-        print(f"Katalog '{output_dir}' już istnieje.")
+    try:
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+            print(f"Katalog '{output_dir}' został utworzony.")
+        else:
+            print(f"Katalog '{output_dir}' już istnieje.")
+    except Exception as e:
+        print(f"Błąd podczas tworzenia katalogu: {e}")

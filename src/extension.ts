@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
-import { exec } from 'child_process'; // Dodany import
+import { exec } from 'child_process'; // Import exec
 import * as fs from 'fs';
 
 export function activate(context: vscode.ExtensionContext) {
@@ -57,8 +57,8 @@ export function activate(context: vscode.ExtensionContext) {
             return;
         }
 
-        // Ścieżka do skryptu Python w katalogu rozszerzenia
-        const scriptPath = `"${path.join(context.extensionPath, 'src', 'generate_structure.py')}"`;
+        // Zaktualizowana ścieżka do nowego skryptu Python (main.py)
+        const scriptPath = `"${path.join(context.extensionPath, 'src', 'main.py')}"`;
         
         // Komenda wywołująca skrypt z rootPath jako argument
         const command = `python ${scriptPath} "${rootPath}"`;
