@@ -2,7 +2,7 @@
     "name": "project-schema-generator",
     "displayName": "Project Schema Generator",
     "description": "Create a schema of your project including directory structure and file contents",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "dariuszwit",
     "icon": "images/icon.png",
     "engines": {
@@ -12,6 +12,7 @@
         "Other"
     ],
     "main": "./out/extension.js",
+    "readme": "./docs/marketplace-readme.md",
     "contributes": {
         "commands": [
             {

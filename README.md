@@ -1,7 +1,9 @@
-
 # Project Schema Generator
 
+[![Buy Me a Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/dariuszwit)
+
 A Python tool designed for generating and validating project folder structures based on predefined rules. This tool supports ignoring files and directories using `.gps-ignore` files and outputs results to `.gps-extension`.
+
 
 ## Features
 
