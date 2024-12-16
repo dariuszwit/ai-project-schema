@@ -1,0 +1,67 @@
+Struktura projektu (bez zignorowanych plików):
+|-- .coverage
+|-- .eslintrc.json
+|-- .github
+    |-- workflows
+        |-- python-tests.yml
+|-- .prettierrc
+|-- .pytest_cache
+    |-- CACHEDIR.TAG
+    |-- v
+|-- .vscode
+    |-- .gps-ignore
+    |-- extensions.json
+    |-- launch.json
+    |-- settings.json
+    |-- tasks.json
+|-- .vscode-test.mjs
+|-- .vscodeignore
+|-- check_project.py
+|-- htmlcov
+    |-- class_index.html
+    |-- coverage_html_cb_497bf287.js
+    |-- function_index.html
+    |-- index.html
+    |-- status.json
+    |-- style_cb_718ce007.css
+    |-- z_145eef247bfb46b6___init___py.html
+    |-- z_145eef247bfb46b6_main_py.html
+    |-- z_145eef247bfb46b6_paths_py.html
+    |-- z_616e7123a924e0d5___init___py.html
+    |-- z_616e7123a924e0d5_file_content_py.html
+    |-- z_616e7123a924e0d5_full_structure_py.html
+    |-- z_616e7123a924e0d5_ignore_py.html
+    |-- z_616e7123a924e0d5_tree_structure_py.html
+    |-- z_616e7123a924e0d5_utils_py.html
+|-- images
+|-- launch.json
+|-- package.json
+|-- pyproject.toml
+|-- pytest.ini
+|-- requirements.txt
+|-- setup.py
+|-- src
+    |-- __init__.py
+    |-- commands
+        |-- createIgnoreFile.ts
+        |-- generateSchema.ts
+    |-- extension.ts
+    |-- main.py
+    |-- paths.py
+    |-- python
+        |-- __init__.py
+        |-- file_content.py
+        |-- full_structure.py
+        |-- ignore.py
+        |-- tree_structure.py
+        |-- utils.py
+    |-- test
+        |-- extension.test.ts
+|-- templates
+    |-- ignorepsg_template.txt
+|-- test-project
+    |-- file1.txt
+    |-- subdir
+        |-- file3.py
+|-- tsconfig.json
+|-- vsc-extension-quickstart.md
