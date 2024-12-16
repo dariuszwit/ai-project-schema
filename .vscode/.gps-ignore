@@ -1,4 +1,6 @@
-# Ignore specific file extensions
+# -----------------------------
+# Universal File Extensions
+# -----------------------------
 *.diff
 *.err
 *.orig
@@ -18,13 +20,17 @@
 *.bundle.js
 *.bundle.js.map
 
-# Ignore image file extensions
+# -----------------------------
+# Image File Extensions
+# -----------------------------
 *.png
 *.jpg
 *.jpeg
 *.webp
 
-# Ignore specific files
+# -----------------------------
+# Specific Files
+# -----------------------------
 LICENSE.txt
 LICENSE
 CHANGELOG.md
@@ -40,7 +46,9 @@ project_analysis.txt
 package-lock.json
 sftp.json
 
-# Ignore folders and files
+# -----------------------------
+# General Folders
+# -----------------------------
 .DS_Store
 Thumbs.db
 .cache/
@@ -52,25 +60,147 @@ nbproject/
 *.sublime-project
 *.sublime-workspace
 
-# Dreamweaver added files
+# Dreamweaver Added Files
 _notes/
 dwsync.xml
 
-# Komodo project files
+# Komodo Project Files
 *.komodoproject
 .komodotools/
 
-# Folders to ignore
+# Ignore Source Control Folders
 .hg/
 .svn/
 .CVS/
+.git/
+
+# Ignore Development Folders
 intermediate/
 .idea/
 cache/
 .vcode/
 node_modules/
 libs/
-.git/
 .tools/
-neon-fonts/
 languages/
+
+# -----------------------------
+# WordPress Specific
+# -----------------------------
+wp-config.php       # Config file (do not share)
+wp-config-sample.php
+debug.log
+.htaccess
+*.db
+*.sql
+*.sqlite
+*.bak
+*.csv
+*.env
+
+# Ignore WordPress Core Files
+wp-admin/
+wp-includes/
+
+# Ignore Uploads and Cache Folders
+uploads/
+cache/
+wpcache/
+upgrade/
+
+# Ignore Theme or Plugin Build Artifacts
+*.mo
+*.po
+*.pot
+*.min.js
+*.min.css
+
+# Ignore Vendor Dependencies
+vendor/
+
+# -----------------------------
+# WooCommerce Specific
+# -----------------------------
+woocommerce/logs/
+woocommerce/tmp/
+woocommerce/packages/
+
+# WooCommerce Extensions
+woocommerce-plugin-backups/
+woocommerce-logs/
+
+# -----------------------------
+# WordPress Plugins Specific
+# -----------------------------
+*.zip              # Ignore exported plugin files
+build/             # Ignore build directory
+assets/            # Plugin assets folder
+languages/         # Plugin language files
+
+# Plugin Test Configurations
+phpunit.xml
+phpunit.xml.dist
+tests/
+tests/_output/
+tests/_support/
+tests/_data/
+
+# -----------------------------
+# Additional Language-Specific Ignores
+# -----------------------------
+
+# Node.js / JavaScript / TypeScript
+node_modules
+dist
+build
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg
+*.egg-info
+pip-wheel-metadata/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.jmod
+target/
+out/
+
+# .NET
+bin/
+obj/
+*.dll
+*.pdb
+*.exe
+
+# Ruby
+*.gem
+*.rbc
+.bundle/
+vendor/
+
+# PHP
+vendor/
+*.phar
+
+# C / C++
+*.o
+*.out
+*.so
+*.dylib
+*.a
+
+# Go
+*.exe
+*.test
+vendor/
+
+# Rust
+target/

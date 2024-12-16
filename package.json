@@ -2,7 +2,7 @@
   "name": "project-schema-generator",
   "displayName": "Project Schema Generator",
   "description": "Create a schema of your project including directory structure and file contents",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "publisher": "dariuszwit",
   "icon": "images/icon.png",
   "engines": {
