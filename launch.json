@@ -1,28 +1,26 @@
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Run Extension",
-      "type": "extensionHost",
-      "request": "launch",
-      "runtimeExecutable": "${execPath}",
-      "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}",
-        "--disable-extensions"  // Disable other extensions to avoid conflicts
-      ],
-      "outFiles": [
-        "${workspaceFolder}/out/**/*.js"
-      ],
-      "preLaunchTask": "npm: compile",
-      "sourceMaps": true,
-      "smartStep": true,
-      "internalConsoleOptions": "openOnSessionStart",  // Automatically open the debug console
-      "skipFiles": [
-        "<node_internals>/**"  // Skip stepping into internal Node.js modules
-      ],
-      "env": {
-        "NODE_ENV": "development"  // Set environment variables for the extension
-      }
-    }
-  ]
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Extension",
+            "type": "extensionHost",
+            "request": "launch",
+            "runtimeExecutable": "${execPath}",
+            "args": [
+                "--extensionDevelopmentPath=${workspaceFolder}",
+                "--disable-extensions" // Disable other extensions to avoid conflicts
+            ],
+            "outFiles": ["${workspaceFolder}/out/**/*.js"],
+            "preLaunchTask": "npm: compile",
+            "sourceMaps": true,
+            "smartStep": true,
+            "internalConsoleOptions": "openOnSessionStart", // Automatically open the debug console
+            "skipFiles": [
+                "<node_internals>/**" // Skip stepping into internal Node.js modules
+            ],
+            "env": {
+                "NODE_ENV": "development" // Set environment variables for the extension
+            }
+        }
+    ]
 }

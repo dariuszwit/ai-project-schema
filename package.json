@@ -1,79 +1,77 @@
 {
-  "name": "project-schema-generator",
-  "displayName": "Project Schema Generator",
-  "description": "Create a schema of your project including directory structure and file contents",
-  "version": "0.0.11",
-  "publisher": "dariuszwit",
-  "icon": "images/icon.png",
-  "engines": {
-    "vscode": "^1.92.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [
-    "onStartupFinished",
-    "onCommand:project-schema-generator.generateSchema",
-    "onCommand:project-schema-generator.createIgnoreFile"
-  ],
-  "main": "./out/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "project-schema-generator.generateSchema",
-        "title": "GPS: Generate Project Schema"
-      },
-      {
-        "command": "project-schema-generator.createIgnoreFile",
-        "title": "GPS: Create .ignorepsg File"
-      }
+    "name": "project-schema-generator",
+    "displayName": "Project Schema Generator",
+    "description": "Create a schema of your project including directory structure and file contents",
+    "version": "0.0.13",
+    "publisher": "dariuszwit",
+    "icon": "images/icon.png",
+    "engines": {
+        "vscode": "^1.92.0"
+    },
+    "categories": [
+        "Other"
     ],
-    "menus": {
-      "explorer/context": [
-        {
-          "command": "project-schema-generator.generateSchema",
-          "when": "explorerResourceIsFolder",
-          "group": "navigation"
-        },
-        {
-          "command": "project-schema-generator.createIgnoreFile",
-          "when": "explorerResourceIsFolder",
-          "group": "navigation"
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "project-schema-generator.generateSchema",
+                "title": "GPS: Generate Project Schema"
+            },
+            {
+                "command": "project-schema-generator.createIgnoreFile",
+                "title": "GPS: Create .ignorepsg File"
+            }
+        ],
+        "menus": {
+            "explorer/context": [
+                {
+                    "command": "project-schema-generator.generateSchema",
+                    "when": "explorerResourceIsFolder",
+                    "group": "navigation"
+                },
+                {
+                    "command": "project-schema-generator.createIgnoreFile",
+                    "when": "explorerResourceIsFolder",
+                    "group": "navigation"
+                }
+            ]
         }
-      ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts",
+        "test": "vscode-test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^10.0.7",
+        "@types/node": "^20.0.0",
+        "@types/vscode": "^1.92.0",
+        "@typescript-eslint/eslint-plugin": "^7.14.1",
+        "@typescript-eslint/parser": "^7.11.0",
+        "@vscode/test-cli": "^0.0.9",
+        "@vscode/test-electron": "^2.4.0",
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "prettier": "^3.4.2",
+        "typescript": "^5.4.5"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dariuszwit/project-schema-generator.git"
+    },
+    "bugs": {
+        "url": "https://github.com/dariuszwit/project-schema-generator/issues"
+    },
+    "homepage": "https://github.com/dariuszwit/project-schema-generator#readme",
+    "license": "MIT",
+    "author": {
+        "name": "Dariusz Wit",
+        "email": "dariusz.wit@linis.it",
+        "url": "https://github.com/dariuszwit"
     }
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "vscode-test"
-  },
-  "devDependencies": {
-    "@types/vscode": "^1.92.0",
-    "@types/mocha": "^10.0.7",
-    "@types/node": "^20.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.14.1",
-    "@typescript-eslint/parser": "^7.11.0",
-    "eslint": "^8.57.0",
-    "typescript": "^5.4.5",
-    "@vscode/test-cli": "^0.0.9",
-    "@vscode/test-electron": "^2.4.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dariuszwit/project-schema-generator.git"
-  },
-  "bugs": {
-    "url": "https://github.com/dariuszwit/project-schema-generator/issues"
-  },
-  "homepage": "https://github.com/dariuszwit/project-schema-generator#readme",
-  "license": "MIT",
-  "author": {
-    "name": "Dariusz Wit",
-    "email": "dariusz.wit@linis.it",
-    "url": "https://github.com/dariuszwit"
-  }
 }

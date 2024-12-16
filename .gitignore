@@ -5,3 +5,5 @@ node_modules
 *.vsix
 .vscode/*
 !.vscode/settings.json
+.gps-extension
+*.js.map

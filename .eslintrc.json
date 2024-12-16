@@ -2,29 +2,53 @@
     "root": true,
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module"
+        "ecmaVersion": 2022,
+        "sourceType": "module",
+        "project": "./tsconfig.json"
     },
-    "plugins": [
-        "@typescript-eslint"
+    "plugins": ["@typescript-eslint", "prettier"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended"
     ],
     "rules": {
+        // Ogólne reguły
+        "curly": "error",
+        "eqeqeq": ["error", "always"],
+        "no-throw-literal": "error",
+
+        // TypeScript specific
         "@typescript-eslint/naming-convention": [
             "warn",
             {
-                "selector": "import",
-                "format": [ "camelCase", "PascalCase" ]
+                "selector": "default",
+                "format": ["camelCase"]
+            },
+            {
+                "selector": "typeLike",
+                "format": ["PascalCase"]
             }
         ],
-        "@typescript-eslint/semi": "warn",
-        "curly": "warn",
-        "eqeqeq": "warn",
-        "no-throw-literal": "warn",
-        "semi": "off"
+        "@typescript-eslint/semi": ["error", "always"],
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            { "argsIgnorePattern": "^_" }
+        ],
+
+        // Wyłączenia Prettiera (obsługuje go plugin Prettier)
+        "semi": "off",
+
+        // Prettier rules
+        "prettier/prettier": [
+            "warn",
+            {
+                "singleQuote": true,
+                "semi": true,
+                "tabWidth": 4,
+                "trailingComma": "all"
+            }
+        ]
     },
-    "ignorePatterns": [
-        "out",
-        "dist",
-        "**/*.d.ts"
-    ]
+    "ignorePatterns": ["out/", "dist/", "**/*.d.ts", "node_modules/","**/*.js","**/*.js.map"]
 }

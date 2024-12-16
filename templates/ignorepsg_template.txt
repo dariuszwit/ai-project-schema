@@ -19,6 +19,7 @@
 *.ignorepsg
 *.bundle.js
 *.bundle.js.map
+*.gps-extension/
 
 # -----------------------------
 # Image File Extensions
@@ -73,6 +74,7 @@ dwsync.xml
 .svn/
 .CVS/
 .git/
+.git
 
 # Ignore Development Folders
 intermediate/

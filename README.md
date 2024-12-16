@@ -11,12 +11,13 @@ Create a schema of your project, including directory structure and file contents
 ## Usage
 
 1. **Generate Project Schema:**
-   - Right-click on a folder in the Explorer view and select `Run Generate Structure Script`.
-   - The structure and content of the project will be saved in a file named `project_structure.txt` in the root of the selected folder.
+
+    - Right-click on a folder in the Explorer view and select `Run Generate Structure Script`.
+    - The structure and content of the project will be saved in a file named `project_structure.txt` in the root of the selected folder.
 
 2. **Create .ignorepsg File:**
-   - Right-click on a folder in the Explorer view and select `Create .ignorepsg File`.
-   - This will generate a `.ignorepsg` file with default ignore rules.
+    - Right-click on a folder in the Explorer view and select `Create .ignorepsg File`.
+    - This will generate a `.ignorepsg` file with default ignore rules.
 
 ## Configuration
 
@@ -42,10 +43,13 @@ node_modules/
 ```
 
 ## Requirements
+
 Python installed on your machine (version 3.x).
 
 ## Installation
+
 You can install this extension from the Visual Studio Code Marketplace.
 
 ## Contributing
+
 Contributions are welcome! Feel free to submit a pull request or open an issue on GitHub.

@@ -1,24 +1,23 @@
 {
-	"compilerOptions": {
-	  "module": "Node16",
-	  "target": "ES2022",
-	  "outDir": "out",
-	  "lib": [
-		"ES2022"
-	  ],
-	  "sourceMap": true,
-	  "rootDir": "src",
-	  "strict": true,
-	  "noImplicitReturns": true, 
-	  "noFallthroughCasesInSwitch": true, 
-	  "noUnusedParameters": true
-	},
-	"include": [
-	  "src"
-	],
-	"exclude": [
-	  "node_modules",
-	  "out"
-	]
-  }
-  
+    "compilerOptions": {
+        "module": "Node16",                // Use Node.js 16 module system
+        "target": "ES2022",                // Target modern JavaScript features
+        "outDir": "out",                   // Directory for compiled files
+        "lib": ["ES2022"],                 // Include ES2022 library definitions
+        "sourceMap": true,                 // Generate source maps for debugging
+        "rootDir": "src",                  // Specify root directory for TypeScript files
+        "strict": true,                    // Enable all strict type-checking options
+        "noImplicitAny": true,             // Disallow variables with implicit 'any' type
+        "noImplicitReturns": true,         // Ensure all code paths return a value
+        "noFallthroughCasesInSwitch": true,// Prevent fallthrough in switch statements
+        "noUnusedLocals": true,            // Report errors for unused local variables
+        "noUnusedParameters": true,        // Report errors for unused function parameters
+        "esModuleInterop": true,           // Enable interoperability with CommonJS modules
+        "forceConsistentCasingInFileNames": true, // Ensure consistent file name casing
+        "moduleResolution": "node16",      // Use Node.js 16 style module resolution
+        "skipLibCheck": true,              // Skip type checking for declaration files
+        "resolveJsonModule": true          // Allow importing JSON files
+    },
+    "include": ["src"],                     // Include TypeScript files from 'src'
+    "exclude": ["node_modules", "out"]      // Exclude 'node_modules' and 'out' directories
+}
