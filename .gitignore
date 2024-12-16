@@ -16,4 +16,4 @@ createIgnoreFile.js.map
 generateSchema.js
 generateSchema.js.map
 out/
-.vsix
+*.vsix
