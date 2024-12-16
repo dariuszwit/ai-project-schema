@@ -1,55 +1,115 @@
+
 # Project Schema Generator
 
-Create a schema of your project, including directory structure and file contents, directly within Visual Studio Code.
+A Python tool designed for generating and validating project folder structures based on predefined rules. This tool supports ignoring files and directories using `.gps-ignore` files and outputs results to `.gps-extension`.
 
 ## Features
 
-- Generate a project schema including directory structure and file contents.
-- Option to create a `.ignorepsg` file to specify files and directories to exclude from the schema.
-- Right-click context menu integration in the Explorer view for quick access.
-
-## Usage
-
-1. **Generate Project Schema:**
-
-    - Right-click on a folder in the Explorer view and select `Run Generate Structure Script`.
-    - The structure and content of the project will be saved in a file named `project_structure.txt` in the root of the selected folder.
-
-2. **Create .ignorepsg File:**
-    - Right-click on a folder in the Explorer view and select `Create .ignorepsg File`.
-    - This will generate a `.ignorepsg` file with default ignore rules.
-
-## Configuration
-
-The `.ignorepsg` file allows you to specify patterns for files and directories that should be ignored when generating the project schema.
-
-### Example of `.ignorepsg` file:
-
-```plaintext
-# Ignore specific file extensions
-*.diff
-*.log
-*.swp
-*.png
-*.jpg
-*.zip
-
-# Ignore OS or Editor folders and files
-.DS_Store
-Thumbs.db
-.cache/
-node_modules/
-.git/
-```
+- Generate folder structures automatically based on configurations.
+- Ignore specific files and folders via `.gps-ignore`.
+- Create and validate `.gps-extension` directories for outputs.
+- Flexible and extensible Python-based solution.
 
 ## Requirements
 
-Python installed on your machine (version 3.x).
+- Python 3.7 or higher
+- Dependencies listed in `requirements.txt`
 
 ## Installation
 
-You can install this extension from the Visual Studio Code Marketplace.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/dariuszwit/project-schema-generator.git
+   cd project-schema-generator
+   ```
+
+2. Create and activate a virtual environment (optional but recommended):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Linux/macOS
+   venv\Scripts\activate  # On Windows
+   ```
+
+3. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Usage
+
+### Command Line Execution
+
+Run the main script:
+```bash
+python src/main.py <directory_path> <ignore_file>
+```
+
+Example:
+```bash
+python src/main.py projects/.gps-project .vscode/.gps-ignore
+```
+
+### Python API
+
+You can also use the tool as a Python module:
+```python
+from src.main import main
+
+main("projects/.gps-project", ".vscode/.gps-ignore")
+```
+
+## Tests
+
+Run tests to ensure the code works as expected:
+```bash
+pytest --cov=src --cov-report=html
+```
+
+Test coverage reports are saved in the `htmlcov` directory. Open `index.html` in your browser to view the detailed coverage.
+
+## Project Structure
+
+```
+project-schema-generator/
+|-- src/
+|   |-- main.py              # Main script for the tool
+|   |-- paths.py             # Helper functions for path management
+|-- tests/
+|   |-- test_main.py         # Unit tests for main.py
+|   |-- test_paths.py        # Unit tests for paths.py
+|-- requirements.txt         # List of dependencies
+|-- setup.py                 # Package configuration for editable installs
+```
 
 ## Contributing
 
-Contributions are welcome! Feel free to submit a pull request or open an issue on GitHub.
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a feature branch:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add your message here"
+   ```
+4. Push to your branch:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+- **Author:** Dariusz Wit
+- **Email:** dariusz.wit@linis.io
+- **GitHub:** [Dariusz Wit](https://github.com/dariuszwit)
+
+---
+
+Happy coding!
