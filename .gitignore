@@ -9,3 +9,9 @@ build/
 *.pyc
 __pycache__/
 *.sqlite
+extension.js
+extension.js.map
+createIgnoreFile.js
+createIgnoreFile.js.map
+generateSchema.js
+generateSchema.js.map
