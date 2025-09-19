@@ -1,0 +1,261 @@
+# ============================================================
+# .ai-schema-ignore template file
+# Defines files and folders to exclude from schema generation
+# ============================================================
+
+# -----------------------------
+# Universal File Extensions
+# -----------------------------
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.lock
+*.pid
+*.cache
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.bz2
+*.xz
+*.iso
+*.img
+*.vsix
+*.code-workspace
+*.ai-schema-ignore
+*.bundle.js
+*.bundle.js.map
+*.gps-extension/
+
+# -----------------------------
+# Image & Media Files
+# -----------------------------
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.ico
+*.svg
+*.gif
+*.psd
+*.tiff
+*.bmp
+*.mp3
+*.wav
+*.ogg
+*.flac
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.mkv
+*.webm
+
+# -----------------------------
+# Font Files
+# -----------------------------
+*.ttf
+*.otf
+*.woff
+*.woff2
+*.eot
+
+# -----------------------------
+# Specific Files
+# -----------------------------
+LICENSE
+LICENSE.txt
+CHANGELOG.md
+README.md
+README.txt
+project_scheme.ps1
+project_structure_and_code.txt
+project_structure.txt
+scheme_creator.py
+project_analysis.txt
+.gitignore
+package-lock.json
+sftp.json
+
+# -----------------------------
+# General Development Folders
+# -----------------------------
+.DS_Store
+Thumbs.db
+.cache/
+.project
+.settings/
+.tmproj
+*.esproj
+nbproject/
+*.sublime-project
+*.sublime-workspace
+.vscode-test/
+coverage/
+reports/
+logs/
+.ai-schema/
+
+# Dreamweaver
+_notes/
+dwsync.xml
+
+# Komodo
+*.komodoproject
+.komododotools/
+
+# Source Control
+.hg/
+.svn/
+.CVS/
+.git/
+
+# Development Artefacts
+intermediate/
+.idea/
+cache/
+.vcode/
+node_modules/
+libs/
+.tools/
+languages/
+dist/
+build/
+out/
+
+# -----------------------------
+# WordPress Specific
+# -----------------------------
+wp-config.php
+wp-config-sample.php
+debug.log
+.htaccess
+*.db
+*.sql
+*.sqlite
+*.csv
+*.env
+wp-admin/
+wp-includes/
+uploads/
+cache/
+wpcache/
+upgrade/
+*.mo
+*.po
+*.pot
+*.min.js
+*.min.css
+vendor/
+
+# WooCommerce
+woocommerce/logs/
+woocommerce/tmp/
+woocommerce/packages/
+woocommerce-plugin-backups/
+woocommerce-logs/
+
+# Plugins
+*.zip
+build/
+assets/
+languages/
+phpunit.xml
+phpunit.xml.dist
+tests/
+tests/_output/
+tests/_support/
+tests/_data/
+
+# -----------------------------
+# Language-Specific Ignores
+# -----------------------------
+# Node.js / TypeScript
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg
+*.egg-info
+*.manifest
+*.spec
+pip-wheel-metadata/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.jmod
+target/
+out/
+
+# .NET
+bin/
+obj/
+*.dll
+*.pdb
+*.exe
+
+# Ruby
+*.gem
+*.rbc
+.bundle/
+vendor/
+
+# PHP
+vendor/
+*.phar
+
+# C / C++
+*.o
+*.out
+*.so
+*.dylib
+*.a
+
+# Go
+*.exe
+*.test
+vendor/
+go.sum
+
+# Rust
+target/
+Cargo.lock
+
+# Swift / iOS
+*.xcworkspace/
+*.xcuserdata/
+DerivedData/
+Pods/
+
+# Android
+*.apk
+*.ap_
+*.dex
+*.gradle
+.gradle/
+local.properties
+
+myenv/

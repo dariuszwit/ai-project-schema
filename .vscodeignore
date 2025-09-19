@@ -1,0 +1,11 @@
+.vscode/**
+.gitignore
+node_modules/
+*.log
+*.ts
+!src/extension.ts
+!templates/**
+!src/main.py
+!src/paths.py
+!src/structure.py
+!src/ignore.py

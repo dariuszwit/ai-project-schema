@@ -1,0 +1,73 @@
+{
+  "name": "ai-project-schema",
+  "displayName": "AI Project Schema",
+  "description": "Generate project schema and file contents for AI analysis",
+  "version": "1.0.0",
+  "publisher": "dariuszwit",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onCommand:ai-project-schema.createIgnoreFile",
+    "onCommand:ai-project-schema.generateSchema"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ai-project-schema.createIgnoreFile",
+        "title": "AI Schema: Create Ignore File"
+      },
+      {
+        "command": "ai-project-schema.generateSchema",
+        "title": "AI Schema: Generate Project Schema"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "ai-project-schema.createIgnoreFile",
+          "group": "navigation@1"
+        },
+        {
+          "command": "ai-project-schema.generateSchema",
+          "group": "navigation@2"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.92.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.11.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dariuszwit/ai-project-schema.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dariuszwit/ai-project-schema/issues"
+  },
+  "homepage": "https://github.com/dariuszwit/ai-project-schema#readme",
+  "license": "MIT",
+  "author": {
+    "name": "Dariusz Wit",
+    "email": "dariusz.wit@linis.it",
+    "url": "https://github.com/dariuszwit"
+  }
+}

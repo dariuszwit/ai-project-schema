@@ -1,0 +1,35 @@
+
+npm install
+
+
+npm test
+
+npm install -g @vscode/vsce --force
+vsce package
+
+code --install-extension ai-project-schema-0.0.10.vsix
+
+Login there:
+https://marketplace.visualstudio.com/manage
+https://marketplace.visualstudio.com/manage/publishers/linis-it
+
+
+https://aex.dev.azure.com/me?mkt=en-US
+
+https://dev.azure.com/LinisIT/
+
+
+npx tsc -p ./
+vsce package
+vsce login linis-it
+paste [PAT]
+vsce publish
+
+
+
+jakieś linki:
+https://marketplace.visualstudio.com/manage/publishers/linis-it
+https://marketplace.visualstudio.com/manage/publishers/linis-it
+https://marketplace.visualstudio.com/publishers/linis-it
+https://linisit.visualstudio.com/_usersSettings/tokens
+https://aex.dev.azure.com/me?mkt=en-US

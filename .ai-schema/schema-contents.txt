@@ -1,0 +1,1187 @@
+Contents of filtered files:
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\.eslintrc.json ---
+
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "@typescript-eslint/naming-convention": [
+            "warn",
+            {
+                "selector": "import",
+                "format": [ "camelCase", "PascalCase" ]
+            }
+        ],
+        "@typescript-eslint/semi": "warn",
+        "curly": "warn",
+        "eqeqeq": "warn",
+        "no-throw-literal": "warn",
+        "semi": "off"
+    },
+    "ignorePatterns": [
+        "out",
+        "dist",
+        "**/*.d.ts"
+    ]
+}
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\.ignorepsg ---
+
+# Ignore specific file extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+*.png
+*.jpg
+*.jpeg
+*.zip
+*.ttf
+*.pot
+
+# Ignore OS or Editor folders and files
+.DS_Store
+Thumbs.db
+.cache/
+.project
+.settings/
+.tmproj
+*.esproj
+nbproject/
+*.sublime-project
+*.sublime-workspace
+
+# Dreamweaver added files
+_notes/
+dwsync.xml
+
+# Komodo project files
+*.komodoproject
+.komodotools/
+
+# Folders to ignore
+.hg/
+.svn/
+.CVS/
+intermediate/
+.idea/
+cache/
+.vcode/
+node_modules/
+admin/fonts/
+admin/images/
+admin/backgrounds/
+libs/
+.git/
+
+# Ignore specific generated files
+public/js/custom-cloud.bundle.js
+public/js/custom-cloud.bundle.js.map
+
+# Ignore specific files
+LICENSE.txt
+project_scheme.ps1
+project_structure_and_code.txt
+.ignorepsg
+.gitignore
+CHANGELOG.md
+README.md
+README.txt
+package-lock.json
+scheme_creator.py
+project_structure.txt
+.ignoreit
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\.instructions\instructions.txt ---
+
+
+npm install
+
+
+npm test
+
+npm install -g @vscode/vsce --force
+vsce package
+
+code --install-extension ai-project-schema-0.0.10.vsix
+
+Login there:
+https://marketplace.visualstudio.com/manage
+https://marketplace.visualstudio.com/manage/publishers/linis-it
+
+
+https://aex.dev.azure.com/me?mkt=en-US
+
+https://dev.azure.com/LinisIT/
+
+
+npx tsc -p ./
+vsce package
+vsce login linis-it
+paste [PAT]
+vsce publish
+
+
+
+jakieś linki:
+https://marketplace.visualstudio.com/manage/publishers/linis-it
+https://marketplace.visualstudio.com/manage/publishers/linis-it
+https://marketplace.visualstudio.com/publishers/linis-it
+https://linisit.visualstudio.com/_usersSettings/tokens
+https://aex.dev.azure.com/me?mkt=en-US
+
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\.vscode\extensions.json ---
+
+{
+	// See http://go.microsoft.com/fwlink/?LinkId=827846
+	// for the documentation about the extensions.json format
+	"recommendations": [
+		"dbaeumer.vscode-eslint",
+		"ms-vscode.extension-test-runner"
+	]
+}
+
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\.vscode\launch.json ---
+
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Extension",
+      "type": "extensionHost",
+      "request": "launch",
+      "runtimeExecutable": "${execPath}",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ],
+      "preLaunchTask": "npm: compile",
+      "sourceMaps": true
+    }
+  ]
+}
+
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\.vscode\settings.json ---
+
+{
+	"files.exclude": {
+	  "out": false // set this to true to hide the "out" folder with the compiled JS files
+	},
+	"search.exclude": {
+	  "out": true // set this to false to include "out" folder in search results
+	},
+	"typescript.tsc.autoDetect": "off"  // Turn off tsc task auto detection since we have the necessary tasks as npm scripts
+  }
+  
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\.vscode\tasks.json ---
+
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "tsc: build",
+      "type": "typescript",
+      "tsconfig": "tsconfig.json",
+      "problemMatcher": ["$tsc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\.vscode-test.mjs ---
+
+import { defineConfig } from '@vscode/test-cli';
+
+export default defineConfig({
+	files: 'out/test/**/*.test.js',
+});
+
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\.vscodeignore ---
+
+.vscode/**
+.gitignore
+node_modules/
+*.log
+*.ts
+!src/extension.ts
+!templates/**
+!src/main.py
+!src/paths.py
+!src/structure.py
+!src/ignore.py
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\extension.js ---
+
+import * as vscode from 'vscode';
+import * as fs from 'fs';
+import * as path from 'path';
+
+export function activate(context: vscode.ExtensionContext) {
+    console.log('AI Project Schema: Extension activated');
+
+    // Function to create .ai-schema-ignore file
+    const createIgnoreFile = async () => {
+        console.log('AI Project Schema: Create .ai-schema-ignore File executed');
+        const workspaceFolders = vscode.workspace.workspaceFolders;
+        if (!workspaceFolders) {
+            vscode.window.showErrorMessage('No workspace folder open.');
+            return;
+        }
+
+        const rootPath = workspaceFolders[0].uri.fsPath;
+        const vscodeDir = path.join(rootPath, '.vscode');
+        const ignoreFilePath = path.join(vscodeDir, '.ai-schema-ignore');
+        const templatePath = path.join(context.extensionPath, 'templates', 'ignore-ai-schema.txt');
+
+        try {
+            if (!fs.existsSync(vscodeDir)) {
+                fs.mkdirSync(vscodeDir);
+                console.log(`AI Project Schema: Created .vscode directory at ${vscodeDir}`);
+            }
+
+            if (fs.existsSync(ignoreFilePath)) {
+                const overwrite = await vscode.window.showWarningMessage(
+                    '.ai-schema-ignore file already exists. Overwrite?',
+                    'Yes', 'No'
+                );
+                if (overwrite !== 'Yes') {
+                    vscode.window.showInformationMessage('Operation cancelled.');
+                    return;
+                }
+            }
+
+            fs.copyFileSync(templatePath, ignoreFilePath);
+            vscode.window.showInformationMessage(`.ai-schema-ignore file created at ${ignoreFilePath}`);
+        } catch (error) {
+            console.error(`AI Project Schema: Error creating .ai-schema-ignore file: ${error}`);
+            vscode.window.showErrorMessage(`Failed to create .ai-schema-ignore file: ${error}`);
+        }
+    };
+
+    // Function to generate project schema
+    const generateSchema = async () => {
+        console.log('AI Project Schema: Generate Project Schema executed');
+        const workspaceFolders = vscode.workspace.workspaceFolders;
+        if (!workspaceFolders) {
+            vscode.window.showErrorMessage('No workspace folder open.');
+            return;
+        }
+
+        const rootPath = workspaceFolders[0].uri.fsPath;
+        const pythonPath = vscode.workspace.getConfiguration('python').get('pythonPath', 'python');
+        const scriptPath = path.join(context.extensionPath, 'src', 'main.py');
+
+        try {
+            const terminal = vscode.window.createTerminal('AI Project Schema');
+            terminal.sendText(`${pythonPath} "${scriptPath}" "${rootPath}"`);
+            terminal.show();
+        } catch (error) {
+            console.error(`AI Project Schema: Error generating schema: ${error}`);
+            vscode.window.showErrorMessage(`Failed to generate project schema: ${error}`);
+        }
+    };
+
+    // Register commands
+    context.subscriptions.push(
+        vscode.commands.registerCommand('ai-project-schema.createIgnoreFile', createIgnoreFile),
+        vscode.commands.registerCommand('ai-project-schema.generateSchema', generateSchema)
+    );
+
+    // Define custom context menu items with separators
+    vscode.commands.executeCommand('setContext', 'aiProjectSchema.customMenu', true);
+    context.subscriptions.push(
+        vscode.commands.registerCommand('ai-project-schema.createIgnoreFile', createIgnoreFile, {
+            title: 'AI Project Schema: Create .ai-schema-ignore File',
+            when: 'explorerResourceIsFolder && aiProjectSchema.customMenu',
+            group: 'aiProjectSchema@1'
+        }),
+        vscode.commands.registerCommand('ai-project-schema.generateSchema', generateSchema, {
+            title: 'AI Project Schema: Generate Project Schema',
+            when: 'explorerResourceIsFolder && aiProjectSchema.customMenu',
+            group: 'aiProjectSchema@2'
+        })
+    );
+}
+
+export function deactivate() {
+    console.log('AI Project Schema: Extension deactivated');
+}
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\extension.js.map ---
+
+{"version":3,"file":"extension.js","sourceRoot":"","sources":["extension.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;AAEA,4BAOC;AAED,gCAA+B;AAX/B,+CAAiC;AAEjC,SAAgB,QAAQ,CAAC,OAAgC;IACrD,IAAI,UAAU,GAAG,MAAM,CAAC,QAAQ,CAAC,eAAe,CAAC,yCAAyC,EAAE,GAAG,EAAE;QAC7F,MAAM,CAAC,MAAM,CAAC,sBAAsB,CAAC,2CAA2C,CAAC,CAAC;QAClF,0BAA0B;IAC9B,CAAC,CAAC,CAAC;IAEH,OAAO,CAAC,aAAa,CAAC,IAAI,CAAC,UAAU,CAAC,CAAC;AAC3C,CAAC;AAED,SAAgB,UAAU,KAAI,CAAC"}
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\launch.json ---
+
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Extension",
+            "type": "extensionHost",
+            "request": "launch",
+            "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
+            "outFiles": ["${workspaceFolder}/out/**/*.js"],
+            "preLaunchTask": "tsc: build"
+        }
+    ]
+}
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\package-DWILENTHI.json ---
+
+{
+  "name": "ai-project-schema",
+  "displayName": "AI Project Schema",
+  "description": "Generate project schema and file contents for AI analysis",
+  "version": "1.0.0",
+  "publisher": "dariuszwit",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onCommand:ai-project-schema.createIgnoreFile",
+    "onCommand:ai-project-schema.generateSchema"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ai-project-schema.createIgnoreFile",
+        "title": "AI Schema: Create Ignore File"
+      },
+      {
+        "command": "ai-project-schema.generateSchema",
+        "title": "AI Schema: Generate Project Schema"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "ai-project-schema.createIgnoreFile",
+          "group": "navigation@1"
+        },
+        {
+          "command": "ai-project-schema.generateSchema",
+          "group": "navigation@2"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.92.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.11.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dariuszwit/ai-project-schema.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dariuszwit/ai-project-schema/issues"
+  },
+  "homepage": "https://github.com/dariuszwit/ai-project-schema#readme",
+  "license": "MIT",
+  "author": {
+    "name": "Dariusz Wit",
+    "email": "dariusz.wit@linis.it",
+    "url": "https://github.com/dariuszwit"
+  }
+}
+
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\package.json ---
+
+{
+  "name": "ai-project-schema",
+  "displayName": "AI Project Schema",
+  "description": "A VS Code extension to generate project schemas with AI-driven filtering.",
+  "version": "1.0.4",
+  "publisher": "linis-it",
+  "icon": "images/linis-it-ai-project-schema.png",
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:ai-project-schema.generateSchema"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ai-project-schema.generateSchema",
+        "title": "AI Project Schema: Generate Project Schema"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "ai-project-schema.generateSchema",
+          "when": "explorerResourceIsFolder",
+          "group": "aiProjectSchema@1"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "ai-project-schema.generateSchema",
+        "key": "ctrl+alt+g",
+        "mac": "cmd+alt+g",
+        "when": "explorerResourceIsFolder"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.92.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "typescript": "^5.4.5",
+    "@vscode/test-cli": "^0.0.9",
+    "@vscode/test-electron": "^2.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dariuszwit/ai-project-schema.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dariuszwit/ai-project-schema/issues"
+  },
+  "homepage": "https://github.com/dariuszwit/ai-project-schema#readme",
+  "license": "MIT",
+  "author": {
+    "name": "Dariusz Wit",
+    "email": "dariusz.wit@linis.it",
+    "url": "https://github.com/dariuszwit"
+  }
+}
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\src\__init__.py ---
+
+
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\src\extension.ts ---
+
+import * as vscode from 'vscode';
+import * as fs from 'fs';
+import * as path from 'path';
+
+export function activate(context: vscode.ExtensionContext) {
+    console.log('AI Project Schema: Extension activated');
+
+    // Function to generate project schema
+    const generateSchema = async () => {
+        console.log('AI Project Schema: Generate Project Schema executed');
+        const workspaceFolders = vscode.workspace.workspaceFolders;
+        if (!workspaceFolders) {
+            vscode.window.showErrorMessage('No workspace folder open.');
+            return;
+        }
+
+        const rootPath = workspaceFolders[0].uri.fsPath;
+        const vscodeDir = path.join(rootPath, '.vscode');
+        const ignoreFilePath = path.join(vscodeDir, '.ai-schema-ignore');
+        const templatePath = path.join(context.extensionPath, 'templates', 'ignore-ai-schema.txt');
+        const outputDir = path.join(rootPath, '.ai-schema');
+        // Dynamiczna ścieżka do main.py w folderze rozszerzenia
+        const scriptPath = path.join(context.extensionPath, 'src', 'main.py');
+        const pythonPath = vscode.workspace.getConfiguration('python').get('pythonPath', 'python');
+
+        // Automatically create .ai-schema-ignore if it doesn't exist, but do not overwrite
+        if (!fs.existsSync(vscodeDir)) {
+            fs.mkdirSync(vscodeDir);
+            console.log(`AI Project Schema: Created .vscode directory at ${vscodeDir}`);
+        }
+        if (!fs.existsSync(ignoreFilePath)) {
+            fs.copyFileSync(templatePath, ignoreFilePath);
+            console.log(`AI Project Schema: Created .ai-schema-ignore at ${ignoreFilePath}`);
+        } else {
+            console.log(`AI Project Schema: Using existing .ai-schema-ignore at ${ignoreFilePath}`);
+        }
+
+        // Sprawdź, czy main.py istnieje w zainstalowanej wtyczce
+        if (!fs.existsSync(scriptPath)) {
+            vscode.window.showErrorMessage(`Error: main.py not found at ${scriptPath}. Please reinstall the extension.`);
+            return;
+        }
+
+        try {
+            const terminal = vscode.window.createTerminal('AI Project Schema');
+            terminal.sendText(`${pythonPath} "${scriptPath}" "${rootPath}"`);
+            terminal.show();
+        } catch (error) {
+            console.error(`AI Project Schema: Error generating schema: ${error}`);
+            vscode.window.showErrorMessage(`Failed to generate project schema: ${error}`);
+        }
+    };
+
+    // Register only the generate schema command
+    context.subscriptions.push(
+        vscode.commands.registerCommand('ai-project-schema.generateSchema', generateSchema)
+    );
+
+    // Define custom context menu item with separator
+    vscode.commands.executeCommand('setContext', 'aiProjectSchema.customMenu', true);
+    context.subscriptions.push(
+        vscode.commands.registerCommand('ai-project-schema.generateSchema', generateSchema, {
+            title: 'AI Project Schema: Generate Project Schema',
+            when: 'explorerResourceIsFolder && aiProjectSchema.customMenu',
+            group: 'aiProjectSchema@1'
+        })
+    );
+}
+
+export function deactivate() {
+    console.log('AI Project Schema: Extension deactivated');
+}
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\src\ignore.py ---
+
+import os
+import fnmatch
+
+def load_ignore_list(ignore_file_path):
+    """Load ignore patterns from .ai-schema-ignore file (supports # comments)."""
+    patterns = []
+    if os.path.exists(ignore_file_path):
+        with open(ignore_file_path, 'r', encoding='utf-8', errors='ignore') as f:
+            for raw in f:
+                line = raw.strip()
+                if not line or line.startswith('#'):
+                    continue
+                patterns.append(line)
+        # print(f"[INFO] Loaded ignore file: {ignore_file_path} ({len(patterns)} patterns)")  # Wyłączone
+    else:
+        # print(f"[WARN] Ignore file not found: {ignore_file_path}")  # Wyłączone
+        pass
+    return patterns
+
+def _normalize_pattern(pat: str) -> str:
+    """Normalize pattern for OS paths (slashes)."""
+    pat = pat.strip('\'"')
+    if pat.startswith("./"):
+        pat = pat[2:]
+    return pat.replace("/", os.sep)
+
+def is_ignored(path: str, ignore_list: list[str], project_root: str | None = None) -> bool:
+    """Check if path should be ignored."""
+    if not ignore_list:
+        # print(f"[CHECK] {path} -> no patterns loaded")  # Wyłączone
+        return False
+
+    norm_path = os.path.normpath(path)
+    rel_path = norm_path
+    if project_root:
+        try:
+            rel_path = os.path.relpath(norm_path, project_root)
+        except Exception:
+            rel_path = norm_path
+    rel_path = os.path.normpath(rel_path)
+    base_name = os.path.basename(norm_path)
+
+    # print(f"[CHECK] Checking path: {rel_path} (basename={base_name})")  # Wyłączone
+
+    for raw_pat in ignore_list:
+        pat = _normalize_pattern(raw_pat)
+        if not pat:
+            continue
+
+        # Strip trailing separator only for fnmatch comparisons
+        stripped_pat = pat.rstrip(os.sep)
+
+        # Basename match (for files or directories)
+        if fnmatch.fnmatch(base_name, stripped_pat):
+            # print(f"[IGNORED] {rel_path} (matched basename {pat})")  # Wyłączone
+            return True
+
+        # Relative path match (for files or directories)
+        if fnmatch.fnmatch(rel_path, stripped_pat):
+            # print(f"[IGNORED] {rel_path} (matched relpath {pat})")  # Wyłączone
+            return True
+
+        # Directory prefix match (for recursive directory ignores)
+        if rel_path == stripped_pat or rel_path.startswith(stripped_pat + os.sep):
+            # print(f"[IGNORED] {rel_path} (matched dir prefix {pat})")  # Wyłączone
+            return True
+
+        # Full path match (fallback)
+        if fnmatch.fnmatch(norm_path, stripped_pat):
+            # print(f"[IGNORED] {rel_path} (matched full path {pat})")  # Wyłączone
+            return True
+
+        # Exact directory match with trailing separator
+        if pat.endswith(os.sep) and (rel_path + os.sep) == pat:
+            # print(f"[IGNORED] {rel_path} (matched exact dir {pat})")  # Wyłączone
+            return True
+
+    # print(f"[NOT IGNORED] {rel_path}")  # Wyłączone
+    return False
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\src\main.py ---
+
+import sys
+import os
+# Import lokalnych modułów bez prefiksu 'src'
+from paths import get_ignore_file_path, get_output_directory_path, create_output_directory
+from ignore import load_ignore_list
+from structure import (
+    generate_filtered_tree_structure,
+    generate_filtered_file_contents,
+    generate_full_tree_structure
+)
+
+def main():
+    if len(sys.argv) < 2:
+        print("Error: Missing project root directory argument")
+        sys.exit(1)
+
+    project_root = os.path.normpath(sys.argv[1])
+    # print(f"[INFO] Project root: {project_root}")  # Wyłączone
+
+    ignore_file = get_ignore_file_path(project_root)
+    output_dir = get_output_directory_path(project_root)
+
+    # print(f"[INFO] Ignore file: {ignore_file}")  # Wyłączone
+    # print(f"[INFO] Output dir: {output_dir}")  # Wyłączone
+
+    create_output_directory(output_dir)
+    ignore_list = load_ignore_list(ignore_file)
+    # print(f"[DEBUG] Ignore patterns: {ignore_list}")  # Wyłączone
+
+    # Filtered tree
+    structure_lines_filtered = []
+    generate_filtered_tree_structure(project_root, ignore_list, structure_lines_filtered, project_root=project_root)
+    try:
+        with open(os.path.join(output_dir, "schema-filtered.txt"), 'w', encoding='utf-8') as f:
+            f.write("Project structure (ignoring selected files):\n")
+            f.write("\n".join(structure_lines_filtered))
+        # print(f"[INFO] Written schema-filtered.txt to {output_dir}")  # Wyłączone
+    except Exception as e:
+        with open(os.path.join(output_dir, "schema-filtered.txt"), 'w', encoding='utf-8') as f:
+            f.write(f"[ERROR] Failed to write schema-filtered.txt: {str(e)}\n")
+
+    # Filtered contents
+    content_lines = []
+    generate_filtered_file_contents(project_root, ignore_list, content_lines, project_root=project_root)
+    try:
+        with open(os.path.join(output_dir, "schema-contents.txt"), 'w', encoding='utf-8') as f:
+            f.write("Contents of filtered files:\n")
+            f.write("\n".join(content_lines))
+        # print(f"[INFO] Written schema-contents.txt to {output_dir}")  # Wyłączone
+    except Exception as e:
+        with open(os.path.join(output_dir, "schema-contents.txt"), 'w', encoding='utf-8') as f:
+            f.write(f"[ERROR] Failed to write schema-contents.txt: {str(e)}\n")
+
+    # Full tree - Wyłączone, aby zaoszczędzić czas
+    # structure_lines_full = []
+    # generate_full_tree_structure(project_root, structure_lines_full)
+    # try:
+    #     with open(os.path.join(output_dir, "schema-full.txt"), 'w', encoding='utf-8') as f:
+    #         f.write("Full project structure:\n")
+    #         f.write("\n".join(structure_lines_full))
+    #     # print(f"[INFO] Written schema-full.txt to {output_dir}")  # Wyłączone
+    # except Exception as e:
+    #     with open(os.path.join(output_dir, "schema-full.txt"), 'w', encoding='utf-8') as f:
+    #         f.write(f"[ERROR] Failed to write schema-full.txt: {str(e)}\n")
+
+    # print(f"[DONE] All schema files written to: {output_dir}")  # Wyłączone
+
+
+if __name__ == "__main__":
+    main()
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\src\paths.py ---
+
+import os
+
+def get_ignore_file_path(project_root):
+    """Return path to .ai-schema-ignore file in .vscode folder."""
+    return os.path.join(project_root, ".vscode", ".ai-schema-ignore")
+
+def get_output_directory_path(project_root):
+    """Return path to .ai-schema output directory."""
+    return os.path.join(project_root, ".ai-schema")
+
+def create_output_directory(output_dir):
+    """Create output directory if it does not exist."""
+    try:
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+            print(f"[INFO] Directory '{output_dir}' created.")
+        else:
+            print(f"[INFO] Directory '{output_dir}' already exists.")
+    except Exception as e:
+        print(f"[ERROR] While creating directory '{output_dir}': {e}")
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\src\structure.py ---
+
+import os
+# Import bez prefiksu 'src', ponieważ są w tym samym folderze
+from ignore import is_ignored
+
+def generate_filtered_tree_structure(root_dir, ignore_list, output_lines, level=0, project_root=None):
+    """Generate project tree structure while skipping ignored files."""
+    if project_root is None:
+        project_root = root_dir
+    try:
+        for item in sorted(os.listdir(root_dir)):
+            item_path = os.path.join(root_dir, item)
+            if is_ignored(item_path, ignore_list, project_root):
+                # print(f"[SKIPPED] {item_path} (ignored)")  # Wyłączone
+                continue
+            output_lines.append(" " * level * 4 + "|-- " + item)
+            # print(f"[INCLUDED] {item_path} in filtered tree")  # Wyłączone
+            if os.path.isdir(item_path):
+                generate_filtered_tree_structure(item_path, ignore_list, output_lines, level + 1, project_root)
+    except Exception as e:
+        output_lines.append(f"[ERROR] While processing {root_dir}: {str(e)}")
+        # print(f"[ERROR] While processing {root_dir}: {str(e)}")  # Wyłączone
+
+def generate_filtered_file_contents(root_dir, ignore_list, output_lines, project_root=None):
+    """Generate contents of files that are not ignored."""
+    if project_root is None:
+        project_root = root_dir
+    try:
+        for item in sorted(os.listdir(root_dir)):
+            item_path = os.path.join(root_dir, item)
+            if is_ignored(item_path, ignore_list, project_root):
+                # print(f"[SKIPPED] {item_path} (ignored)")  # Wyłączone
+                continue
+            if os.path.isfile(item_path):
+                try:
+                    with open(item_path, 'r', encoding='utf-8', errors='ignore') as file:
+                        output_lines.append(f"\n\n--- File: {item_path} ---\n")
+                        output_lines.append(file.read())
+                        # print(f"[INCLUDED] Contents of {item_path} in schema-contents")  # Wyłączone
+                except Exception as e:
+                    output_lines.append(f"\n\n--- Could not read file: {item_path} ---\n")
+                    output_lines.append(str(e))
+                    # print(f"[ERROR] Could not read file: {item_path}: {str(e)}")  # Wyłączone
+            elif os.path.isdir(item_path):
+                generate_filtered_file_contents(item_path, ignore_list, output_lines, project_root)
+    except Exception as e:
+        output_lines.append(f"[ERROR] While processing {root_dir}: {str(e)}")
+        # print(f"[ERROR] While processing {root_dir}: {str(e)}")  # Wyłączone
+
+def generate_full_tree_structure(root_dir, output_lines, level=0):
+    """Generate the full project tree structure (ignores nothing)."""
+    try:
+        for item in sorted(os.listdir(root_dir)):
+            item_path = os.path.join(root_dir, item)
+            output_lines.append(" " * level * 4 + "|-- " + item)
+            # print(f"[INCLUDED] {item_path} in full tree")  # Wyłączone
+            if os.path.isdir(item_path):
+                generate_full_tree_structure(item_path, output_lines, level + 1)
+    except Exception as e:
+        output_lines.append(f"[ERROR] While processing {root_dir}: {str(e)}")
+        # print(f"[ERROR] While processing {root_dir}: {str(e)}")  # Wyłączone
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\templates\ignore-ai-schema.txt ---
+
+# ============================================================
+# .ai-schema-ignore template file
+# Defines files and folders to exclude from schema generation
+# ============================================================
+
+# -----------------------------
+# Universal File Extensions
+# -----------------------------
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.lock
+*.pid
+*.cache
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.bz2
+*.xz
+*.iso
+*.img
+*.vsix
+*.code-workspace
+*.ai-schema-ignore
+*.bundle.js
+*.bundle.js.map
+*.gps-extension/
+
+# -----------------------------
+# Image & Media Files
+# -----------------------------
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.ico
+*.svg
+*.gif
+*.psd
+*.tiff
+*.bmp
+*.mp3
+*.wav
+*.ogg
+*.flac
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.mkv
+*.webm
+
+# -----------------------------
+# Font Files
+# -----------------------------
+*.ttf
+*.otf
+*.woff
+*.woff2
+*.eot
+
+# -----------------------------
+# Specific Files
+# -----------------------------
+LICENSE
+LICENSE.txt
+CHANGELOG.md
+README.md
+README.txt
+project_scheme.ps1
+project_structure_and_code.txt
+project_structure.txt
+scheme_creator.py
+project_analysis.txt
+.gitignore
+package-lock.json
+sftp.json
+
+# -----------------------------
+# General Development Folders
+# -----------------------------
+.DS_Store
+Thumbs.db
+.cache/
+.project
+.settings/
+.tmproj
+*.esproj
+nbproject/
+*.sublime-project
+*.sublime-workspace
+.vscode-test/
+coverage/
+reports/
+logs/
+.ai-schema/
+
+# Dreamweaver
+_notes/
+dwsync.xml
+
+# Komodo
+*.komodoproject
+.komododotools/
+
+# Source Control
+.hg/
+.svn/
+.CVS/
+.git/
+
+# Development Artefacts
+intermediate/
+.idea/
+cache/
+.vcode/
+node_modules/
+libs/
+.tools/
+languages/
+dist/
+build/
+out/
+
+# -----------------------------
+# WordPress Specific
+# -----------------------------
+wp-config.php
+wp-config-sample.php
+debug.log
+.htaccess
+*.db
+*.sql
+*.sqlite
+*.csv
+*.env
+wp-admin/
+wp-includes/
+uploads/
+cache/
+wpcache/
+upgrade/
+*.mo
+*.po
+*.pot
+*.min.js
+*.min.css
+vendor/
+
+# WooCommerce
+woocommerce/logs/
+woocommerce/tmp/
+woocommerce/packages/
+woocommerce-plugin-backups/
+woocommerce-logs/
+
+# Plugins
+*.zip
+build/
+assets/
+languages/
+phpunit.xml
+phpunit.xml.dist
+tests/
+tests/_output/
+tests/_support/
+tests/_data/
+
+# -----------------------------
+# Language-Specific Ignores
+# -----------------------------
+# Node.js / TypeScript
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg
+*.egg-info
+*.manifest
+*.spec
+pip-wheel-metadata/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.jmod
+target/
+out/
+
+# .NET
+bin/
+obj/
+*.dll
+*.pdb
+*.exe
+
+# Ruby
+*.gem
+*.rbc
+.bundle/
+vendor/
+
+# PHP
+vendor/
+*.phar
+
+# C / C++
+*.o
+*.out
+*.so
+*.dylib
+*.a
+
+# Go
+*.exe
+*.test
+vendor/
+go.sum
+
+# Rust
+target/
+Cargo.lock
+
+# Swift / iOS
+*.xcworkspace/
+*.xcuserdata/
+DerivedData/
+Pods/
+
+# Android
+*.apk
+*.ap_
+*.dex
+*.gradle
+.gradle/
+local.properties
+
+myenv/
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\tsconfig.json ---
+
+{
+  "compilerOptions": {
+    "module": "Node16",
+    "target": "ES2022",
+    "outDir": "out",
+    "lib": [
+      "ES2022"
+    ],
+    "sourceMap": true,
+    "rootDir": "src",
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedParameters": true
+  },
+  "include": [
+    "src"
+, "src/extension.ts"  ],
+  "exclude": [
+    "node_modules",
+    "out"
+  ]
+}
+
+
+--- File: d:\OneDrivePrivNew\OneDrive\Documents\Visual Studio Code\VSC Plugins\Structure Generator\ai-project-schema\vsc-extension-quickstart.md ---
+
+# Welcome to your VS Code Extension
+
+## What's in the folder
+
+* This folder contains all of the files necessary for your extension.
+* `package.json` - this is the manifest file in which you declare your extension and command.
+  * The sample plugin registers a command and defines its title and command name. With this information VS Code can show the command in the command palette. It doesn’t yet need to load the plugin.
+* `src/extension.ts` - this is the main file where you will provide the implementation of your command.
+  * The file exports one function, `activate`, which is called the very first time your extension is activated (in this case by executing the command). Inside the `activate` function we call `registerCommand`.
+  * We pass the function containing the implementation of the command as the second parameter to `registerCommand`.
+
+## Get up and running straight away
+
+* Press `F5` to open a new window with your extension loaded.
+* Run your command from the command palette by pressing (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac) and typing `AI Project Schema: Generate Project Schema`.
+* Set breakpoints in your code inside `src/extension.ts` to debug your extension.
+* Find output from your extension in the debug console.
+
+## Make changes
+
+* You can relaunch the extension from the debug toolbar after changing code in `src/extension.ts`.
+* You can also reload (`Ctrl+R` or `Cmd+R` on Mac) the VS Code window with your extension to load your changes.
+
+## Explore the API
+
+* You can open the full set of our API when you open the file `node_modules/@types/vscode/index.d.ts`.
+
+## Run tests
+
+* Install the [Extension Test Runner](https://marketplace.visualstudio.com/items?itemName=ms-vscode.extension-test-runner)
+* Run the "watch" task via the **Tasks: Run Task** command. Make sure this is running, or tests might not be discovered.
+* Open the Testing view from the activity bar and click the "Run Test" button, or use the hotkey `Ctrl/Cmd + ; A`
+* See the output of the test result in the Test Results view.
+* Make changes to `src/test/extension.test.ts` or create new test files inside the `test` folder.
+  * The provided test runner will only consider files matching the name pattern `**.test.ts`.
+  * You can create folders inside the `test` folder to structure your tests any way you want.
+
+## Go further
+
+* [Follow UX guidelines](https://code.visualstudio.com/api/ux-guidelines/overview) to create extensions that seamlessly integrate with VS Code's native interface and patterns.
+* Reduce the extension size and improve the startup time by [bundling your extension](https://code.visualstudio.com/api/working-with-extensions/bundling-extension).
+* [Publish your extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) on the VS Code extension marketplace.
+* Automate builds by setting up [Continuous Integration](https://code.visualstudio.com/api/working-with-extensions/continuous-integration).

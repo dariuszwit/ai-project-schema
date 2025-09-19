@@ -1,0 +1,29 @@
+Project structure (ignoring selected files):
+|-- .eslintrc.json
+|-- .ignorepsg
+|-- .instructions
+    |-- instructions.txt
+|-- .vscode
+    |-- extensions.json
+    |-- launch.json
+    |-- settings.json
+    |-- tasks.json
+|-- .vscode-test.mjs
+|-- .vscodeignore
+|-- extension.js
+|-- extension.js.map
+|-- images
+|-- launch.json
+|-- package-DWILENTHI.json
+|-- package.json
+|-- src
+    |-- __init__.py
+    |-- extension.ts
+    |-- ignore.py
+    |-- main.py
+    |-- paths.py
+    |-- structure.py
+|-- templates
+    |-- ignore-ai-schema.txt
+|-- tsconfig.json
+|-- vsc-extension-quickstart.md
